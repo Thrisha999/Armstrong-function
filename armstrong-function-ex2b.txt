@@ -1,0 +1,31 @@
+create or replace function armstrong(n int)
+return int
+is
+m int;
+l int;
+x int:=0;
+s int:=0;
+p int;
+k int;
+begin
+ m:=n;
+ l:=n;
+while(m>0)
+loop
+  m:=trunc(m/10);
+  x:=x+1;
+end loop;
+ while(l>0)
+ loop
+  k:=mod(l,10);
+  p:=power(k,x);
+  s:=s+p;
+  l:=trunc(l/10);
+end loop;
+if(s=n) then
+ return 1;
+else
+ return 0;
+end if;
+end;
+/
